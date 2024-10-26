@@ -6,6 +6,7 @@ import initial_state from './store/stores';
 import { reducer } from './reducer/reducer';
 import { Grid } from '@material-ui/core';
 import Axios from 'axios';
+import { countNonSpecificCases } from './utils';
 
 export const Context = React.createContext()
 const API = 'https://www.datos.gov.co/resource/gt2j-8ykr.json'
@@ -36,8 +37,10 @@ function App() {
     const fetchCasos = async () => {
       try {
         /* Todos los casos confirmados*/
-        const casos = await Axios.get(`${API}?$limit=50000000`)
-        const numeroCasosTotales = casos.data.length
+        const casos = await Axios.get(`${API}?$limit=590000`)
+        // const casos = await Axios.get(`${API}?$limit=50000000`)
+        const numeroCasosTotales = casos.data.length        
+        
         setState({
           type: 'CASOS_CONFIRMADOS',
           payload: {
@@ -46,33 +49,30 @@ function App() {
           }
         })
 
-        /* Todos los casos Muertos*/
-        const CasosTotalesMuertos = casos.data.filter(caso => (caso.estado === 'Fallecido'))
-        const numberCasosMuertos = CasosTotalesMuertos.length
+        const sumaTypeCases = countNonSpecificCases(casos.data, fechaHoy, fechaAyer)      
+        
+        /* Todos los casos Muertos*/                
         setState({
           type: 'CASOS_MUERTOS',
           payload: {
-            totalCasosMuertos: numberCasosMuertos
+            totalCasosMuertos: sumaTypeCases.totalFallecido
           }
         })
-        /* Todos los casos recuperados*/
-        const CasosTotalesRecuperados = casos.data.filter(caso => (caso.atenci_n === 'Recuperado'))
-        const numberCasosRecuperados = CasosTotalesRecuperados.length
+
+        /* Todos los casos recuperados*/        
         setState({
           type: 'RECUPERADOS',
           payload: {
-            totalRecuperados: numberCasosRecuperados
+            totalRecuperados: sumaTypeCases.totalRecuperados > 0 ? sumaTypeCases.totalRecuperados : (<p style={{ fontSize: '18px' }}>No hay datos</p>)
           }
         })
 
 
-        /* Casos de ayer */
-        const casosAyer = casos.data.filter(caso => (caso.fecha_reporte_web === fechaAyer))
-        const numberCasosAyer = casosAyer.length
+        /* Casos de ayer */        
         setState({
           type: 'CASOS_AYER',
           payload: {
-            casosDeAyer: numberCasosAyer
+            casosDeAyer: sumaTypeCases.totalAyer > 0 ? sumaTypeCases.totalAyer : (<p style={{ fontSize: '18px' }}>No hay datos</p>)
           }
         })
 
@@ -93,7 +93,7 @@ function App() {
         setState({
           type: 'MUERTOS_AYER',
           payload: {
-            muertosAyer: numberMuertosAyer
+            muertosAyer: numberMuertosAyer > 0 ? numberMuertosAyer : (<p style={{ fontSize: '18px' }}>No hay datos</p>)
           }
         })
 
@@ -114,16 +114,15 @@ function App() {
         setState({
           type: 'RECUPERADOS_AYER',
           payload: {
-            recuperadosAyer: numberRecuperadosAyer
+            recuperadosAyer: numberRecuperadosAyer > 0 ? numberRecuperadosAyer : (<p style={{ fontSize: '18px' }}>No hay datos</p>)
           }
         })
 
-        /* Casos de hoy */
-        const casosHoy = casos.data.filter(caso => (caso.fecha_reporte_web === fechaHoy))
+        /* Casos de hoy */        
         setState({
           type: 'CASOS_HOY',
           payload: {
-            casosDehoy: casosHoy.length > 0 ? casosHoy.length : (<p style={{ fontSize: '18px' }}>No hay datos</p>)
+            casosDehoy: sumaTypeCases.totalHoy > 0 ? sumaTypeCases.totalHoy : (<p style={{ fontSize: '18px' }}>No hay datos</p>)
           }
         })
         /* Casos muertos hoy */
