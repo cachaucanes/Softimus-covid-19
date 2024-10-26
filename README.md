@@ -6,14 +6,14 @@ You can visit the live version of the app here:
 -   **Gh-pages**: [COVID-19 Tracker Colombia](https://cachaucanes.github.io/Softimus-covid-19/)
 
 ## Features
-**Global COVID-19** Statistics: Displays the total cases, deaths, and recoveries in Colombia.
-**Date Filter**: Allows users to view COVID-19 statistics for today and yesterday for a quick trend analysis.
-**Material UI**: Uses Material UI for a polished, responsive user interface.
+- **Global COVID-19** Statistics: Displays the total cases, deaths, and recoveries in Colombia.
+- **Date Filter**: Allows users to view COVID-19 statistics for today and yesterday for a quick trend analysis.
+- **Material UI**: Uses Material UI for a polished, responsive user interface.
 
 ## Tech Stack
-**ReactJS**: Framework for building the user interface.
-**Material UI**: UI component library for React, providing styling and responsive design.
-**Colombia COVID-19 Public API**: Provides real-time COVID-19 data for Colombia.
+- **ReactJS**: Framework for building the user interface.
+- **Material UI**: UI component library for React, providing styling and responsive design.
+- **Colombia COVID-19 Public API**: Provides real-time COVID-19 data for Colombia.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -43,5 +43,6 @@ The build is minified and the filenames include the hashes.<br />
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
 ![image](https://github.com/user-attachments/assets/15f8c5c8-2404-49ef-9589-933229aee52d)
 
