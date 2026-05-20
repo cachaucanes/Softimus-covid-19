@@ -1,48 +1,54 @@
 # COVID-19 Tracker Colombia
-**COVID-19 Tracker Colombia** is a React web application that uses Material UI and consumes Colombia’s public API for COVID-19 data. The application provides updated statistics on COVID-19 cases, deaths, and recoveries, along with the ability to filter data by today’s and yesterday’s cases to see recent trends.
 
-## Live Demo
-You can visit the live version of the app here:
--   **Gh-pages**: [COVID-19 Tracker Colombia](https://cachaucanes.github.io/Softimus-covid-19/)
+Aplicación web construida con React que consume la API pública de COVID-19
+de Colombia y muestra estadísticas actualizadas de casos, fallecidos y recuperados.
 
-## Features
-- **Global COVID-19** Statistics: Displays the total cases, deaths, and recoveries in Colombia.
-- **Date Filter**: Allows users to view COVID-19 statistics for today and yesterday for a quick trend analysis.
-- **Material UI**: Uses Material UI for a polished, responsive user interface.
+## 🔗 Demo
 
-## Tech Stack
-- **ReactJS**: Framework for building the user interface.
-- **Material UI**: UI component library for React, providing styling and responsive design.
-- **Colombia COVID-19 Public API**: Provides real-time COVID-19 data for Colombia.
+**GitHub Pages:** https://cachaucanes.github.io/Softimus-covid-19/
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## ✨ Features
 
-## Available Scripts
+- Estadísticas globales de COVID-19 en Colombia (casos, muertes, recuperados)
+- Filtro por fecha: hoy y ayer para ver tendencias recientes
+- Interfaz responsive con Material UI
 
-In the project directory, you can run:
+## 🛠️ Tech Stack
 
-### `npm start`
+| Tecnología | Versión |
+|---|---|
+| React | 18.x |
+| MUI (Material UI) | 5.x |
+| Axios | 1.x |
+| react-spinners | 0.14.x |
+| Create React App | 5.x |
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## 🚀 Instalación local
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+```bash
+git clone https://github.com/cachaucanes/Softimus-covid-19.git
+cd Softimus-covid-19
+npm install
+npm start
+```
 
-### `npm test`
+Abre http://localhost:3000 en el navegador.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 📦 Scripts disponibles
 
-### `npm run build`
+| Comando | Descripción |
+|---|---|
+| `npm start` | Corre la app en modo desarrollo |
+| `npm run build` | Genera el build de producción |
+| `npm test` | Ejecuta los tests |
+| `npm run deploy` | Publica en GitHub Pages |
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## ⚠️ Known issues
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+`npm audit` reporta vulnerabilidades provenientes de `webpack-dev-server`,
+interno de `react-scripts`. No afectan el build de producción y no tienen
+fix disponible sin romper la arquitectura del proyecto.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 📄 Licencia
 
-![image](https://github.com/user-attachments/assets/15f8c5c8-2404-49ef-9589-933229aee52d)
-
+MIT
