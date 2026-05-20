@@ -52,3 +52,5 @@ fix disponible sin romper la arquitectura del proyecto.
 ## 📄 Licencia
 
 MIT
+
+<img width="1450" height="937" alt="image" src="https://github.com/user-attachments/assets/1058b1ca-6734-4a97-abfa-64ebfe6a79ca" />
