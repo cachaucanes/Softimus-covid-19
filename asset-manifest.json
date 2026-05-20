@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/Softimus-covid-19/static/css/main.624a023e.css",
-    "main.js": "/Softimus-covid-19/static/js/main.abdbc283.js",
+    "main.css": "/Softimus-covid-19/static/css/main.aa299eba.css",
+    "main.js": "/Softimus-covid-19/static/js/main.093d2bb0.js",
     "index.html": "/Softimus-covid-19/index.html",
-    "main.624a023e.css.map": "/Softimus-covid-19/static/css/main.624a023e.css.map",
-    "main.abdbc283.js.map": "/Softimus-covid-19/static/js/main.abdbc283.js.map"
+    "main.aa299eba.css.map": "/Softimus-covid-19/static/css/main.aa299eba.css.map",
+    "main.093d2bb0.js.map": "/Softimus-covid-19/static/js/main.093d2bb0.js.map"
   },
   "entrypoints": [
-    "static/css/main.624a023e.css",
-    "static/js/main.abdbc283.js"
+    "static/css/main.aa299eba.css",
+    "static/js/main.093d2bb0.js"
   ]
 }
