@@ -4,7 +4,7 @@ import './App.css';
 import Casos from './components/Casos';
 import initial_state from './store/stores';
 import { reducer } from './reducer/reducer';
-import { Grid } from '@material-ui/core';
+import { Grid } from '@mui/material';
 import Axios from 'axios';
 import { countNonSpecificCases } from './utils';
 
@@ -39,8 +39,8 @@ function App() {
         /* Todos los casos confirmados*/
         const casos = await Axios.get(`${API}?$limit=590000`)
         // const casos = await Axios.get(`${API}?$limit=50000000`)
-        const numeroCasosTotales = casos.data.length        
-        
+        const numeroCasosTotales = casos.data.length
+
         setState({
           type: 'CASOS_CONFIRMADOS',
           payload: {
@@ -49,9 +49,9 @@ function App() {
           }
         })
 
-        const sumaTypeCases = countNonSpecificCases(casos.data, fechaHoy, fechaAyer)      
-        
-        /* Todos los casos Muertos*/                
+        const sumaTypeCases = countNonSpecificCases(casos.data, fechaHoy, fechaAyer)
+
+        /* Todos los casos Muertos*/
         setState({
           type: 'CASOS_MUERTOS',
           payload: {
@@ -59,7 +59,7 @@ function App() {
           }
         })
 
-        /* Todos los casos recuperados*/        
+        /* Todos los casos recuperados*/
         setState({
           type: 'RECUPERADOS',
           payload: {
@@ -68,7 +68,7 @@ function App() {
         })
 
 
-        /* Casos de ayer */        
+        /* Casos de ayer */
         setState({
           type: 'CASOS_AYER',
           payload: {
@@ -118,7 +118,7 @@ function App() {
           }
         })
 
-        /* Casos de hoy */        
+        /* Casos de hoy */
         setState({
           type: 'CASOS_HOY',
           payload: {
@@ -157,7 +157,7 @@ function App() {
             }
           }
           return false
-        })        
+        })
         setState({
           type: 'RECUPERADOS_HOY',
           payload: {
@@ -185,8 +185,8 @@ function App() {
           <Grid
             container
             direction="row"
-            justify="space-around"
-            alignItems="flex-start"
+            justifyContent="center"
+            alignItems="center"
           >
             <Casos background='#ff980099' title={'Casos confirmados'} casos={state.casosConfirmados} />
             <Casos background='#ff00008f' title={'Muertes totales'} casos={state.totalCasosMuertos} />
@@ -201,16 +201,13 @@ function App() {
           <Grid
             container
             direction="row"
-            justify="space-around"
-            alignItems="flex-start"
+            justifyContent="center"
+            alignItems="center"
           >
             <Casos background='#ff9800b8' title={'Casos de hoy'} casos={state.casosDehoy} />
             <Casos background='#ff0000b8' title={'Muertes hoy'} casos={state.muertoshoy} />
             <Casos background='#008000c7' title={'Recuperados hoy'} casos={state.recuperadosHoy} />
           </Grid>
-
-
-
         </div>
         <div>
           <div>
@@ -219,16 +216,13 @@ function App() {
           <Grid
             container
             direction="row"
-            justify="space-around"
-            alignItems="flex-start"
+            justifyContent="center"
+            alignItems="center"
           >
             <Casos background='#ff9800b8' title={'Casos Ayer'} casos={state.casosDeAyer} />
             <Casos background='#ff0000b8' title={'Muertes Ayer'} casos={state.muertosAyer} />
             <Casos background='#008000c7' title={'Recuperados Ayer'} casos={state.recuperadosAyer} />
           </Grid>
-
-
-
         </div>
       </div>
     </Context.Provider>
